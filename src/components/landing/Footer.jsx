@@ -48,7 +48,7 @@ const Footer = () => {
                         <ul className="space-y-4 text-sm text-white/40">
                             <li><NavHashLink smooth to="/#founder" className="hover:text-white transition-colors">About Us</NavHashLink></li>
                             <li><NavHashLink smooth to="/#founder" className="hover:text-white transition-colors">Founder</NavHashLink></li>
-                            <li><NavHashLink smooth to="/#features" className="hover:text-white transition-colors">Success Stories</NavHashLink></li>
+                            <li><NavHashLink smooth to="/#testimonials" className="hover:text-white transition-colors">Success Stories</NavHashLink></li>
                             <li><a href="mailto:contact@myaipathshala.com" className="hover:text-white transition-colors">Contact</a></li>
                         </ul>
                     </div>
@@ -56,9 +56,9 @@ const Footer = () => {
                     <div>
                         <h4 className="font-bold mb-6">Legal</h4>
                         <ul className="space-y-4 text-sm text-white/40">
-                            <li className="hover:text-white cursor-pointer transition-colors">Privacy Policy</li>
-                            <li className="hover:text-white cursor-pointer transition-colors">Terms of Service</li>
-                            <li className="hover:text-white cursor-pointer transition-colors">Cookie Policy</li>
+                            <li><Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link></li>
+                            <li><Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link></li>
+                            <li><a href="mailto:contact@myaipathshala.com" className="hover:text-white transition-colors">Cookie Policy</a></li>
                         </ul>
                     </div>
                 </div>
@@ -66,9 +66,9 @@ const Footer = () => {
                 <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-white/30">
                     <p>© 2026 MYAIPATHSHALA. All rights reserved.</p>
                     <div className="flex gap-8">
-                        <span className="hover:text-white cursor-pointer">Security</span>
-                        <span className="hover:text-white cursor-pointer">Status</span>
-                        <span className="hover:text-white cursor-pointer">Help Center</span>
+                        <a href="mailto:contact@myaipathshala.com" className="hover:text-white transition-colors">Help Center</a>
+                        <Link to="/privacy" className="hover:text-white transition-colors">Security</Link>
+                        <Link to="/terms" className="hover:text-white transition-colors">Status</Link>
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { NavHashLink } from 'react-router-hash-link';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
@@ -16,6 +17,7 @@ const Navbar = () => {
             <div className="hidden md:flex items-center gap-8 text-sm font-medium text-white/70">
                 <NavHashLink smooth to="/#features" className="hover:text-white transition-colors">AI Tools</NavHashLink>
                 <NavHashLink smooth to="/#courses" className="hover:text-white transition-colors">Courses</NavHashLink>
+                <NavHashLink smooth to="/#testimonials" className="hover:text-white transition-colors">Stories</NavHashLink>
                 <NavHashLink smooth to="/#founder" className="hover:text-white transition-colors">Founder</NavHashLink>
                 <NavHashLink smooth to="/#faq" className="hover:text-white transition-colors">FAQ</NavHashLink>
             </div>

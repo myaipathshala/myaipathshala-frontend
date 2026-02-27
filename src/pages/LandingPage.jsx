@@ -6,6 +6,7 @@ import Courses from '../components/landing/Courses';
 import FAQ from '../components/landing/FAQ';
 import Footer from '../components/landing/Footer';
 import Founder from '../components/landing/Founder';
+import Testimonials from '../components/landing/Testimonials';
 import { motion } from 'framer-motion';
 
 const LandingPage = () => {
@@ -16,6 +17,7 @@ const LandingPage = () => {
                 <Hero />
                 <Features />
                 <Courses />
+                <Testimonials />
                 <Founder />
                 <FAQ />
             </main>
