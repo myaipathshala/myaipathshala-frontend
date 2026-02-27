@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { auth } from '../api';
 import Registration from './Registration';
 import Dashboard from './Dashboard';
 import CourseDetail from './CourseDetail';
@@ -10,6 +11,15 @@ const DashboardContainer = () => {
     const [view, setView] = useState('registration'); // registration, dashboard, course, planner
     const [selectedCourse, setSelectedCourse] = useState(null);
     const location = useLocation();
+
+    // Restore session from localStorage on mount
+    useEffect(() => {
+        const savedUser = auth.getUser();
+        if (savedUser && auth.isLoggedIn()) {
+            setUser(savedUser);
+            setView('dashboard');
+        }
+    }, []);
 
     useEffect(() => {
         const params = new URLSearchParams(location.search);
@@ -50,7 +60,7 @@ const DashboardContainer = () => {
                             </button>
                             <button
                                 className="px-4 py-2 rounded-lg bg-red-500/20 hover:bg-red-500/40 text-red-400 transition-colors"
-                                onClick={() => setUser(null) & setView('registration')}
+                                onClick={() => { auth.clearSession(); setUser(null); setView('registration'); }}
                             >
                                 Logout
                             </button>

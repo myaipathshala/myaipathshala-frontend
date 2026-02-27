@@ -19,12 +19,33 @@ const handleResponse = async (response) => {
   return data;
 };
 
+// ─── Auth Token Helpers ────────────────────────────────────
+export const auth = {
+  getToken: () => localStorage.getItem('myai_token'),
+  getUser: () => { try { return JSON.parse(localStorage.getItem('myai_user')); } catch { return null; } },
+  setSession: (token, user) => {
+    localStorage.setItem('myai_token', token);
+    localStorage.setItem('myai_user', JSON.stringify(user));
+  },
+  clearSession: () => {
+    localStorage.removeItem('myai_token');
+    localStorage.removeItem('myai_user');
+  },
+  isLoggedIn: () => !!localStorage.getItem('myai_token'),
+};
+
 export const identityApi = {
   register: (params) => fetch(`${API_BASE_URL}/identity`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ action: "register", ...params })
-  }).then(handleResponse)
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action: 'register', params })
+  }).then(handleResponse),
+
+  login: (params) => fetch(`${API_BASE_URL}/identity`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ action: 'login', params })
+  }).then(handleResponse),
 };
 
 export const learningApi = {

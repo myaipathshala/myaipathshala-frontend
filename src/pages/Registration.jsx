@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { User, Mail, Lock, ArrowRight, Sparkles, LogIn, Rocket } from 'lucide-react';
-import { identityApi } from '../api';
+import { identityApi, auth } from '../api';
 
 const Registration = ({ onRegister }) => {
     const [tab, setTab] = useState('register'); // 'register' | 'login'
@@ -19,10 +19,16 @@ const Registration = ({ onRegister }) => {
         try {
             if (tab === 'register') {
                 const response = await identityApi.register({ username, email, password, role });
-                onRegister(response.data.result.user_id, username);
+                const userId = response.data?.result?.user_id || response.data?.user_id || 'user';
+                const token = response.data?.result?.token || userId.toString();
+                auth.setSession(token, { id: userId, username, role });
+                onRegister(userId, username);
             } else {
-                const response = await identityApi.register({ username, email, password, role });
-                onRegister(response.data.result.user_id, username);
+                const response = await identityApi.login({ username, password });
+                const userId = response.data?.result?.user_id || response.data?.user_id || 'user';
+                const token = response.data?.result?.token || userId.toString();
+                auth.setSession(token, { id: userId, username, role });
+                onRegister(userId, username);
             }
         } catch (err) {
             setError(err.message || 'Something went wrong. Please try again.');
