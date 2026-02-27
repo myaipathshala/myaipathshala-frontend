@@ -11,10 +11,11 @@ const Founder = () => {
                 <div className="flex flex-col md:flex-row gap-12 items-center">
                     <div className="relative">
                         <div className="w-48 h-48 md:w-64 md:h-64 rounded-3xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-500 shadow-2xl border-4 border-white/5">
-                            {/* Placeholder for Founder Image */}
-                            <div className="w-full h-full bg-gradient-to-br from-brand-accent/20 to-brand-purple/20 flex items-center justify-center text-4xl font-bold text-white/20">
-                                JM
-                            </div>
+                            <img
+                                src="/founder.png"
+                                alt="Jawahar Mallah — Founder, MYAIPATHSHALA"
+                                className="w-full h-full object-cover"
+                            />
                         </div>
                         <motion.div
                             initial={{ rotate: -10, opacity: 0 }}
