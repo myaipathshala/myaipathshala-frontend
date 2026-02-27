@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Registration from './Registration';
 import Dashboard from './Dashboard';
 import CourseDetail from './CourseDetail';
@@ -8,6 +9,15 @@ const DashboardContainer = () => {
     const [user, setUser] = useState(null);
     const [view, setView] = useState('registration'); // registration, dashboard, course, planner
     const [selectedCourse, setSelectedCourse] = useState(null);
+    const location = useLocation();
+
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        const viewParam = params.get('view');
+        if (viewParam && ['registration', 'dashboard', 'course', 'planner'].includes(viewParam)) {
+            setView(viewParam);
+        }
+    }, [location]);
 
     const handleRegister = (id, username) => {
         setUser({ id, username });

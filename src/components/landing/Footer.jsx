@@ -1,5 +1,6 @@
-import React from 'react';
 import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { NavHashLink } from 'react-router-hash-link';
 
 const Footer = () => {
     return (
@@ -17,30 +18,38 @@ const Footer = () => {
                             Empowering students and professionals to lead the AI revolution through accessible, world-class education.
                         </p>
                         <div className="flex gap-4">
-                            <Twitter size={18} className="text-white/40 hover:text-brand-accent cursor-pointer transition-colors" />
-                            <Linkedin size={18} className="text-white/40 hover:text-brand-accent cursor-pointer transition-colors" />
-                            <Github size={18} className="text-white/40 hover:text-brand-accent cursor-pointer transition-colors" />
-                            <Mail size={18} className="text-white/40 hover:text-brand-accent cursor-pointer transition-colors" />
+                            <a href="https://twitter.com/myaipathshala" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-brand-accent transition-colors">
+                                <Twitter size={18} />
+                            </a>
+                            <a href="https://linkedin.com/company/myaipathshala" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-brand-accent transition-colors">
+                                <Linkedin size={18} />
+                            </a>
+                            <a href="https://github.com/myaipathshala" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-brand-accent transition-colors">
+                                <Github size={18} />
+                            </a>
+                            <a href="mailto:contact@myaipathshala.com" className="text-white/40 hover:text-brand-accent transition-colors">
+                                <Mail size={18} />
+                            </a>
                         </div>
                     </div>
 
                     <div>
                         <h4 className="font-bold mb-6">Platform</h4>
                         <ul className="space-y-4 text-sm text-white/40">
-                            <li className="hover:text-white cursor-pointer transition-colors">AI Homework Help</li>
-                            <li className="hover:text-white cursor-pointer transition-colors">Resume Builder</li>
-                            <li className="hover:text-white cursor-pointer transition-colors">Code Assistant</li>
-                            <li className="hover:text-white cursor-pointer transition-colors">Career Paths</li>
+                            <li><Link to="/app?view=dashboard" className="hover:text-white transition-colors">AI Homework Help</Link></li>
+                            <li><Link to="/app?view=dashboard" className="hover:text-white transition-colors">Resume Builder</Link></li>
+                            <li><Link to="/app?view=dashboard" className="hover:text-white transition-colors">Code Assistant</Link></li>
+                            <li><Link to="/app?view=planner" className="hover:text-white transition-colors">Career Paths</Link></li>
                         </ul>
                     </div>
 
                     <div>
                         <h4 className="font-bold mb-6">Company</h4>
                         <ul className="space-y-4 text-sm text-white/40">
-                            <li className="hover:text-white cursor-pointer transition-colors">About Us</li>
-                            <li className="hover:text-white cursor-pointer transition-colors">Founder</li>
-                            <li className="hover:text-white cursor-pointer transition-colors">Success Stories</li>
-                            <li className="hover:text-white cursor-pointer transition-colors">Contact</li>
+                            <li><NavHashLink smooth to="/#founder" className="hover:text-white transition-colors">About Us</NavHashLink></li>
+                            <li><NavHashLink smooth to="/#founder" className="hover:text-white transition-colors">Founder</NavHashLink></li>
+                            <li><NavHashLink smooth to="/#features" className="hover:text-white transition-colors">Success Stories</NavHashLink></li>
+                            <li><a href="mailto:contact@myaipathshala.com" className="hover:text-white transition-colors">Contact</a></li>
                         </ul>
                     </div>
 

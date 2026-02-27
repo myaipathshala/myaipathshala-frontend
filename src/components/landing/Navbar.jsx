@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Menu, X, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { NavHashLink } from 'react-router-hash-link';
 
 const Navbar = () => {
     return (
@@ -14,10 +14,10 @@ const Navbar = () => {
             </div>
 
             <div className="hidden md:flex items-center gap-8 text-sm font-medium text-white/70">
-                <a href="#features" className="hover:text-white transition-colors">AI Tools</a>
-                <a href="#courses" className="hover:text-white transition-colors">Courses</a>
-                <a href="#founder" className="hover:text-white transition-colors">Founder</a>
-                <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
+                <NavHashLink smooth to="/#features" className="hover:text-white transition-colors">AI Tools</NavHashLink>
+                <NavHashLink smooth to="/#courses" className="hover:text-white transition-colors">Courses</NavHashLink>
+                <NavHashLink smooth to="/#founder" className="hover:text-white transition-colors">Founder</NavHashLink>
+                <NavHashLink smooth to="/#faq" className="hover:text-white transition-colors">FAQ</NavHashLink>
             </div>
 
             <div className="flex items-center gap-3">

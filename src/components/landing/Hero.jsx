@@ -53,9 +53,14 @@ const Hero = () => {
                     >
                         Start Learning for Free <ArrowRight size={20} />
                     </Link>
-                    <button className="w-full sm:w-auto px-8 py-4 rounded-2xl glass border-white/10 text-lg font-bold flex items-center justify-center gap-2 hover:bg-white/5 transition-all">
+                    <a
+                        href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full sm:w-auto px-8 py-4 rounded-2xl glass border-white/10 text-lg font-bold flex items-center justify-center gap-2 hover:bg-white/5 transition-all"
+                    >
                         <Play size={20} fill="white" /> Watch Demo
-                    </button>
+                    </a>
                 </motion.div>
 
                 {/* Stats / Proof */}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { GraduationCap } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const courses = [
     {
@@ -45,9 +46,12 @@ const Courses = () => {
                             <div className="p-6">
                                 <h3 className="text-xl font-bold mb-2">{course.title}</h3>
                                 <p className="text-white/40 text-sm mb-6">Duration: {course.duration}</p>
-                                <button className="w-full py-3 rounded-xl border border-white/10 hover:bg-white/5 transition-colors text-sm font-semibold">
+                                <Link
+                                    to="/app"
+                                    className="w-full py-3 rounded-xl border border-white/10 hover:bg-white/5 transition-colors text-sm font-semibold flex items-center justify-center"
+                                >
                                     View Syllabus
-                                </button>
+                                </Link>
                             </div>
                         </motion.div>
                     ))}
